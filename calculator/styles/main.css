@@ -1,0 +1,121 @@
+:root {
+    --primary: #2a2a2a;
+    --accent: #ff9500;
+    --background: #1a1a1a;
+    --text: #ffffff;
+    /* Add explicit button colors */
+    --button-bg: rgba(255, 255, 255, 0.1);
+    --button-hover: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: var(--background);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text);
+}
+
+.calculator {
+    background: rgba(40, 40, 40, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.display {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+}
+
+#equation {
+    font-size: 1.2rem;
+    opacity: 0.7;
+    min-height: 24px;
+}
+
+#result {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+}
+
+button {
+    background: var(--button-bg);
+    border: none;
+    padding: 1.2rem;
+    border-radius: 12px;
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    /* Add focus styles for accessibility */
+    outline: none;
+}
+
+button:hover,
+button:focus {
+    background: var(--button-hover);
+    transform: scale(1.05);
+}
+
+button:focus {
+    /* Add visible focus indicator */
+    box-shadow: 0 0 0 3px var(--accent);
+}
+
+.operator {
+    background: var(--accent);
+    color: var(--primary);
+}
+
+.operator:hover {
+    background: #ffaa33;
+}
+
+.equals {
+    background: #00cc88;
+    color: var(--primary);
+}
+
+.equals:hover {
+    background: #00dd99;
+}
+
+@media (max-width: 480px) {
+    .calculator {
+        margin: 1rem;
+        padding: 1rem;
+        /* Add min-width to prevent too narrow display */
+        min-width: 280px;
+    }
+    
+    button {
+        padding: 1rem;
+        /* Ensure text remains readable on small screens */
+        font-size: 1rem;
+    }
+}
